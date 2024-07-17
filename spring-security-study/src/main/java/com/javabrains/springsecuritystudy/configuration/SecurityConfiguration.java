@@ -39,6 +39,7 @@ public class SecurityConfiguration {
 			         .anyRequest().authenticated();
 		}).formLogin(form -> form.loginPage("/login").permitAll())
 		.csrf(csrf -> csrf.disable())	/* If you disable csrf, even GET logout is permitted, else, you need a POST logout request */
+		/* .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll()); */
 		.logout(logout -> logout.logoutSuccessUrl("/logoutSuccess").permitAll());
 		
 		return httpSecurity.build();
